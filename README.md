@@ -257,7 +257,7 @@ To run this part, you can type `make` to generate the appropriate executable, na
 ```
 Here is some sample output:
 ```
-./sieve
+./sieve.bin
 prime 2
 prime 3
 prime 5
