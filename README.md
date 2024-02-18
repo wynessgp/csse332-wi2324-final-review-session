@@ -240,7 +240,7 @@ Files to modify: `sieve.c` <br>
 ### Description:
 This is actually an *optional* problem that was on the Process Lab assignment from all that time ago. 
 
-The objective is to set up a pipeline of processes that "sieves" out the first couple prime numbers that we know (the website suggests you limit it to be less than 35). The first process will generate all the numbers 2 through `n` (n can be whatever you want your input to be, I suggest 35), feeding them into the pipeline so long as it's **NOT** a multiple of 2. The second process is to eliminate multiples of 3 (second prime number), the third process is to eliminate multiples of 5, and so on. 
+The objective is to set up a pipeline of processes that "sieves" out the prime numbers. Our main process will generate all the numbers 2 through `MAX_NUM_TO_SIEVE` (see the `#define` statement in the file), feeding them to the first process to *begin* the pipeline process. Once the first process receives this number, it will check to see if it is a multiple of two - if it is, we will drop this number from the pipeline. If it turns out that this number is NOT a multiple of two, we will pass it onto the second process; the second process will do the same with three, the third process doing it with five, so on and so forth.
 
 In order to have each process on the pipeline do its job, you'll need to set up a series of pipes going from one to another. The first number each new process receives should be printed; then any subsequent numbers they receive should be checked to see if the prime they are assigned divides that new number. If it doesn't, then pass it to your right neighbor. This should continue until you reach whatever your specified input is, then you should **safely** get rid of all of the processes - no zombies or orphans. Here's the more formal requirements that were given on the course website:
 - Once the main process reaches `n`, it should wait until the entire pipeline terminates, include all children, grandchildren, etc.
@@ -250,12 +250,8 @@ In order to have each process on the pipeline do its job, you'll need to set up 
 
 There is also psuedocode on the course website for what you should look to do if you're really stuck, as well as a figure that gives more detail on what your processes should look like.
 
-To run this part, you can type `make` to generate the appropriate executable, namely, `./sieve.bin`. You can either run this with 1 argument, the number you want to run the prime sieve up to, or you can run it with no arguments, which will use 35 by default. So, either of these are acceptable:
-```
-./sieve.bin <number>
-./sieve.bin
-```
-Here is some sample output:
+To run this part, you can type `make` to generate the appropriate executable, namely, `./sieve.bin`.
+Here is some sample output, with `MAX_NUM_TO_SIEVE = 35`:
 ```
 ./sieve.bin
 prime 2

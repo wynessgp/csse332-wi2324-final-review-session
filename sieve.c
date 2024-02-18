@@ -5,18 +5,13 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 
-void sieve(int max_num_to_sieve) {
-
-    // TODO: add your code here!
-
-
-}
+#define MAX_NUM_TO_SIEVE 35
 
 int main(int argc, char **argv) {
-    // DO NOT CHANGE THIS! Add your code in sieve!
-    int num_to_sieve = 35;
-    if (argc == 2) {
-        num_to_sieve = atoi(argv[1]);
-    }
-    sieve(num_to_sieve);
+    
+    // TODO: Add your code here! I'd suggest solving this
+    // problem with 35 as the intention first, then worrying
+    // about a larger number later; as it's easy to remember primes 
+    // the smaller the number is.
+
 }
