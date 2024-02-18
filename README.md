@@ -125,7 +125,7 @@ Remember that a `pipe` is a **unidirectional** channel of communication between 
 
 Additionally, it is vital that you call `pipe(...)` before you call `fork()`, otherwise the pipes will not get initialized correctly. 
 
-One final thing to remember - `read()` and `write()` are **blocking** calls - what this means is that your program will stop in its tracks if you attempt to `read` say, 128 bytes from a pipe, but there are only 120 bytes' worth of data on the pipe. I have seen this error more than I care to admit to. Be vigilent of your data sizes!!!!
+One final thing to remember - `read()` and `write()` are **blocking** calls - what this means is that your program will stop in its tracks if you attempt to `read` say, 128 bytes from a pipe, but there is no data on the pipe. I have seen this error more than I care to admit to. Be vigilent of what's being written and when!
 
 ### On Using `wait()`
 A good parent process should always wait for its child processes - if you don't, you'll end up with processes running in the background forever. Have you ever been careless with where you call `fork()` and end up creating a ton of extra processes? You probably noticed your laptop started running really slowly afterwards - that's how you fork bomb yourself. Don't do that. I don't think you want to restart your laptop during a 2 hour long exam, that's precious time down the drain. <br><br>
